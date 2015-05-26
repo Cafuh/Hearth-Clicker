@@ -1,12 +1,11 @@
 var gold;
 gold = localStorage.getItem("gold");
 gold = Number(gold);
-var cards = ["Wisp", "Leper Gnome", "Undertaker","Angry Chicken"];
-var pictures = ["images/cards/wisp.png","images/cards/leper_gnome.png","images/cards/undertaker.png","images/cards/angry_chicken.png"];
-var cardWeight = [2, 2, 2, 2]
+
+var cards = [wisp = {name:"Wisp", picture:"images/cards/wisp.png", weight:2}, leperGnome = {name:"Leper Gnome", picture:"images/cards/leper_gnome.png", weight:2} , undertaker = {name:"Undertaker", picture:"images/cards/undertaker.png", weight:2},
+angryChicken = {name:"Angry Chicken", picture:"images/cards/angry_chicken.png", weight:2}];
 
 var playerCards = [];
-var playerCardWeight = [];
 
 function addGold(){
 	if (gold == null){ //if the player doesn't have any saved gold data
@@ -46,8 +45,7 @@ function buyPack(){
         localStorage.setItem("gold", gold); //saves the gold to the storage
         document.getElementById("text").innerHTML = gold; //sets the element to show the proper amount of gold
         var random = Math.round(Math.random() * (cards.length-1)); //random integer
-        playerCardWeight.push(cardWeight[random]); //adds the random card's weight to the player card weight array
-        document.getElementById("card").src = pictures[random]; //shows the random card to the player
+        document.getElementById("card").src = cards[random].picture; //shows the random card to the player
         playerCards.push(cards[random]) //adds the random card to the player's deck
     }
 }
