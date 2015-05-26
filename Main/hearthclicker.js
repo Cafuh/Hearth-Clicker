@@ -24,8 +24,10 @@ function showGold(){
 }
 
 function reset(){
-    gold = 0;
-    localStorage.setItem("gold", 0);
-    document.getElementById("text").innerHTML = 0;
+    if(confirm("Are you sure you want to reset?")){
+        gold = 0;
+        localStorage.setItem("gold", 0);
+        document.getElementById("text").innerHTML = 0;
+    }
 }
 
