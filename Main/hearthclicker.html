@@ -2,14 +2,15 @@
 
 <html>
 	<head>
+        <title>HearthClicker</title>
 		<link href="hearthclicker.css" rel="stylesheet"/>
-		<title>HearthClicker</title>
 	</head>
 	<body onunload="store()" onpageshow="showGold()">
 		<input id ="reset" type="image" src="images/reset_button.png" onclick = reset()>
 		<input id = "logo" type="image" src="images/logo.png" onclick="addGold()">
 		<p id = "text"></p>
 		<script src = "hearthclicker.js"></script>
-		<input id ="buy" type="image" src="images/buy_button_gray.png" align = "right">
+		<input id ="buy" type="image" src="images/buy_button_gray.png" align = "right" onclick="buyPack()">
+        <img id = "card" src = "" >
 	</body>
 </html>
