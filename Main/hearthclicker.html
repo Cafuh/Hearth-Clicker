@@ -7,10 +7,12 @@
 	</head>
 	<body onunload="store()" onpageshow="showGold()">
 		<input id ="reset" type="image" src="images/reset_button.png" onclick = reset()>
-		<input id = "logo" type="image" src="images/logo.png" onclick="addGold()">
+		<img src="images/logo.png" alt="Logo" class="center">
+		<input id = "play_button" type="image" src="images/play_button.png" onclick="addGold()" draggable="false">
 		<p id = "text"></p>
 		<script src = "hearthclicker.js"></script>
 		<input id ="buy" type="image" src="images/buy_button_gray.png" align = "right" onclick="buyPack()">
         <img id = "card" src = "" >
+
 	</body>
 </html>
