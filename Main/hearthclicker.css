@@ -6,7 +6,3 @@ body {
     color: white;
     text-shadow: 2px 2px black; /* Trying to make this have white text with black outline but the shadow looks dumb and I cant find another way to do it that works */
 }
-
-#top{
-    background-color: #1E0302;
-}
