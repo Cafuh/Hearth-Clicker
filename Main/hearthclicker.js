@@ -3,7 +3,10 @@ gold = localStorage.getItem("gold");
 gold = Number(gold);
 var cards = ["Wisp", "Leper Gnome", "Undertaker","Angry Chicken"];
 var pictures = ["images/cards/wisp.png","images/cards/leper_gnome.png","images/cards/undertaker.png","images/cards/angry_chicken.png"];
+var cardWeight = [2, 2, 2, 2]
+
 var playerCards = [];
+var playerCardWeight = [];
 
 function addGold(){
 	if (gold == null){
@@ -40,6 +43,7 @@ function buyPack(){
         localStorage.setItem("gold", gold);
         document.getElementById("text").innerHTML = gold;
         var random = Math.round(Math.random() * (cards.length-1));
+        playerCardWeight.push(cardWeight[random]);
         document.getElementById("card").src = pictures[random];
         playerCards.push(cards[random])
     }
