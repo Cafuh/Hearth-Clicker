@@ -24,8 +24,8 @@
       <file leaf-file-name="heartclicker.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/heartclicker.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09115282">
-              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.18230563">
+              <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -65,8 +65,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2067" />
-    <option name="y" value="104" />
+    <option name="x" value="133" />
+    <option name="y" value="79" />
     <option name="width" value="1515" />
     <option name="height" value="931" />
   </component>
@@ -226,7 +226,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2067" y="104" width="1515" height="931" extended-state="0" />
+    <frame x="133" y="79" width="1515" height="931" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -271,8 +271,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/heartclicker.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09115282">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.18230563">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
           <folding />
         </state>
       </provider>
