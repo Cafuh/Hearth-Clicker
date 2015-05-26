@@ -4,11 +4,19 @@
 	<head>
 		<link href="hearthclicker.css" rel="stylesheet"/>
 		<title>HearthClicker</title>
+		<script>
+			var gold = 0;
+			function addGold(){
+				gold += 1;
+				document.getElementById("text").innerHTML = gold;
+			}
+		</script>
 	</head>
 	<body id = "body">
 	<center><img src="logo.png" alt="Logo"></center>
+	<button type = "button" onclick="addGold()">Click</button>
 	</body>
-	<p id = "text">hey</p> <!-- want this to be white with black background-->
+	<p id = "text">0</p> <!-- want this to be white with black background-->
 
 
 
