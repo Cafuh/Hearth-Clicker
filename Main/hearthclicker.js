@@ -7,7 +7,10 @@ if (rank == null){
 }
 document.getElementById("rank").src= "images/ranks/rank" + rank + ".png";
 
-var playerCards = [];
+var playerCards = localStorage.getItem("deck");
+if (playerCards == null){
+    playerCards = [];
+}
 
 function addGold(){
 	if (gold == null){ //if the player doesn't have any saved gold data
@@ -38,6 +41,8 @@ function reset(){
         localStorage.setItem("rank", 25);//resets the rank to 25 in the storage
         rank = 25; //resets the local rank variable
         document.getElementById("rank").src= "images/ranks/rank" + rank + ".png"; //displays the proper rank icon
+        playerCards = [];
+        localStorage.setItem("deck", null);
     }
 }
 
@@ -52,6 +57,7 @@ function buyPack(){
         var random = Math.round(Math.random() * (cards.length-1)); //random integer
         document.getElementById("card").src = cards[random].picture; //shows the random card to the player
         playerCards.push(cards[random]); //adds the random card to the player's deck
+        localStorage.setItem("deck",playerCards);
     }
 }
 
@@ -69,13 +75,69 @@ function rankUp(){
 }
 
 function showDeck(){
-    for (var i = 0; i < cards.length ; i++){
+    for (var i = 0; i < playerCards.length ; i++){
         var card = document.createElement("img");
-        card.setAttribute("src", cards[i].picture);
+        card.setAttribute("src", playerCards[i].picture);
         card.setAttribute("draggable", "false");
-
         var deck = document.getElementById("deck");
         deck.appendChild(card);
     }
 
+}
+
+function sortDeck(deck){ //this method is dumb and too long
+    var oneMana = [];
+    var twoMana = [];
+    var threeMana = [];
+    var fourMana = [];
+    var fiveMana = [];
+    var sixMana = [];
+    var sevenMana = [];
+    var eightMana = [];
+    var nineMana = [];
+    var tenMana = [];
+    var twelveMana = [];
+    var twentyMana = [];
+
+    for(var i = 0; i<deck.length;i++){
+        var card = deck[i];
+        if(card.mana == 1){
+            oneMana.push(card)
+        }
+        if(card.mana == 2){
+            twoMana.push(card)
+        }
+        if(card.mana == 3){
+            threeMana.push(card)
+        }
+        if(card.mana == 4){
+            fourMana.push(card)
+        }
+        if(card.mana == 5){
+            fiveMana.push(card)
+        }
+        if(card.mana == 6){
+            sixMana.push(card)
+        }
+        if(card.mana == 7){
+            sevenMana.push(card)
+        }
+        if(card.mana == 8){
+            eightMana.push(card)
+        }
+        if(card.mana == 9){
+            nineMana.push(card)
+        }
+        if(card.mana == 10){
+            tenMana.push(card)
+        }
+        if(card.mana == 12){
+            twelveMana.push(card)
+        }
+        if(card.mana == 20){
+            twentyMana.push(card)
+        }
+    }
+    oneMana.sort();twoMana.sort();threeMana.sort();fourMana.sort();fiveMana.sort();sixMana.sort();sevenMana.sort();eightMana.sort();nineMana.sort();tenMana.sort();twelveMana.sort();twentyMana.sort();
+    return finalDeck = oneMana + twoMana + threeMana + fourMana + fiveMana + sixMana + sevenMana + eightMana +nineMana +tenMana + twelveMana + twentyMana;
 }
