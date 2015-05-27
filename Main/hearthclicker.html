@@ -1,16 +1,22 @@
 <!Doctype html>
 
 <html>
-	<head>
-        <title>HearthClicker</title>
-		<link href="hearthclicker.css" rel="stylesheet"/>
-	</head>
-	<body onunload="store()" onpageshow="showGold()">
-		<input id ="reset" type="image" src="images/reset_button.png" onclick = reset()>
-		<input id = "logo" type="image" src="images/logo.png" onclick="addGold()" draggable="false">
-		<p id = "text">0</p>
-		<script src = "hearthclicker.js"></script>
-		<input id ="buy" type="image" src="images/buy_button_gray.png" align = "right" onclick="buyPack()">
-        <img id = "card" src = "" >
-	</body>
+<head>
+	<title>HearthClicker</title>
+	<link href="hearthclicker.css" rel="stylesheet"/>
+	        <link rel="shortcut icon" href="images/gold.png"/>
+</head>
+<body onunload="store()" onpageshow="showGold()">
+<input id ="reset" type="image" src="images/reset_button.png" onclick = reset()>
+        <div align = "middle" id = "mid" >
+	            <img src="images/logo.png" alt="Logo" draggable="false" >
+	            <img id = "play_button" src="images/play_button.png" onclick="addGold()" draggable="false">
+	        </div>
+<p id = "text"></p>
+<script src = "hearthclicker.js"></script>
+		<img id ="buy" src="images/buy_button_gray.png" align = "right" onclick="buyPack()" draggable="false">
+<img id = "card" src = "" >
+
+</body>
+-</html>
 </html>

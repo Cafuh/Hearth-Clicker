@@ -13,3 +13,20 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+#mid{
+    width: 50%;
+    margin-left:auto;
+    margin-right:auto;
++}
+
+#buy{
+    cursor:pointer;
+}
+
+#play_button{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    cursor:pointer;
+}

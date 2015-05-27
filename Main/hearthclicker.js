@@ -29,7 +29,7 @@ function showGold(){
 }
 
 function reset(){
-    if(confirm("Are you sure you want to reset?")){ //asks the user if they are sure
+    if(confirm("You're all talk, you won't reset it.")){ //asks the user if they are sure
         gold = 0; //sets the gold to 0
         localStorage.setItem("gold", 0); //sets the stored data to 0
         document.getElementById("text").innerHTML = 0; //makes the element show 0
