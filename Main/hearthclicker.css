@@ -45,7 +45,13 @@ body {
 
 #rank {
 	position: absolute;
-    top: 5px;
+    top: 8px;
     right: 0px;
+}
+
+#reset {
+cursor:pointer;
+    position: absolute;
+    top: 8px;
 }
 
