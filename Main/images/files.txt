@@ -1,6 +1,0 @@
-buy_button.png
-buy_button_gray.png
-cards
-files.txt
-logo.png
-reset_button.png
