@@ -10,6 +10,7 @@ body {
 
 #logo{
     display:block;
+    position: absolute;
     margin-left: auto;
     margin-right: auto;
 }
@@ -18,10 +19,13 @@ body {
     width: 50%;
     margin-left:auto;
     margin-right:auto;
-+}
+}
 
 #buy{
     cursor:pointer;
+    position: absolute;
+    top: 310px;
+    right: 0px;
 }
 
 #play_button{
@@ -40,9 +44,8 @@ body {
 }
 
 #rank {
-	position: relative;
 	position: absolute;
-    top: 0px;
+    top: 5px;
     right: 0px;
 }
 
