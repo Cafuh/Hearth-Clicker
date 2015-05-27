@@ -1,6 +1,10 @@
 var gold;
 gold = localStorage.getItem("gold");
 gold = Number(gold);
+var rank = localStorage.getItem("rank");
+if (rank == null){
+    rank = 25;
+}
 
 var cards = [wisp = {name:"Wisp", picture:"images/cards/wisp.png", weight:2}, leperGnome = {name:"Leper Gnome", picture:"images/cards/leper_gnome.png", weight:2} , undertaker = {name:"Undertaker", picture:"images/cards/undertaker.png", weight:2},
 angryChicken = {name:"Angry Chicken", picture:"images/cards/angry_chicken.png", weight:2}];
@@ -48,4 +52,9 @@ function buyPack(){
         document.getElementById("card").src = cards[random].picture; //shows the random card to the player
         playerCards.push(cards[random]) //adds the random card to the player's deck
     }
+}
+
+function calculateWinNumber(){
+    var num = 25 - rank;
+    var winNumber = 100 + (num * num * num);
 }
