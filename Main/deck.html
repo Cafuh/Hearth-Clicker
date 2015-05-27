@@ -8,12 +8,17 @@
     </head>
 
     <body onload="showDeck()">
-        <div align = "middle" id = "mid" >
+        <input id ="reset" type="image" src="images/reset_button.png" onclick = "reset()">
+    <div align = "middle" id = "mid" >
                 <a href="hearthclicker.html"><img src="images/logo.png" alt="Logo" draggable="false"></a>
         </div>
         <div id = "deck">
-
         </div>
+
+        <div id="content">
+            <img id ="rank" src = "images/ranks/rank" onclick="rankUp()">
+        </div>
+
         <script src="cards.js"></script>
         <script src = "hearthclicker.js"></script>
     </body>
