@@ -8,7 +8,7 @@ if (rank == null){
 document.getElementById("rank").src= "images/ranks/rank" + rank + ".png";
 
 var playerCards = localStorage.getItem("deck");
-if (playerCards == null){
+if (playerCards.length == 0){
     playerCards = [];
 }
 
@@ -42,7 +42,7 @@ function reset(){
         rank = 25; //resets the local rank variable
         document.getElementById("rank").src= "images/ranks/rank" + rank + ".png"; //displays the proper rank icon
         playerCards = [];
-        localStorage.setItem("deck", null);
+        localStorage.setItem("deck", playerCards);
     }
 }
 
@@ -55,10 +55,11 @@ function buyPack(){
         localStorage.setItem("gold", gold); //saves the gold to the storage
         document.getElementById("text").innerHTML = gold; //sets the element to show the proper amount of gold
         var random = Math.round(Math.random() * (cards.length-1)); //random integer
-        var card = cards[random]
+        card = cards[random];
         document.getElementById("card").src = card.picture; //shows the random card to the player
         playerCards.push(card); //adds the random card to the player's deck
         localStorage.setItem("deck",playerCards);
+        document.getElementById("debug").innerHTML = playerCards[0].name;
     }
 }
 
@@ -76,9 +77,10 @@ function rankUp(){
 }
 
 function showDeck(){
-    for (var i = 0; i < playerCards.length ; i++){
+    var cardz = sortDeck(cards)
+    for (var i = 0; i < cardz.length ; i++){
         var card = document.createElement("img");
-        card.setAttribute("src", playerCards[i].picture);
+        card.setAttribute("src", cardz[i].picture);
         card.setAttribute("draggable", "false");
         var deck = document.getElementById("deck");
         deck.appendChild(card);
