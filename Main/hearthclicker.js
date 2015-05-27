@@ -55,8 +55,9 @@ function buyPack(){
         localStorage.setItem("gold", gold); //saves the gold to the storage
         document.getElementById("text").innerHTML = gold; //sets the element to show the proper amount of gold
         var random = Math.round(Math.random() * (cards.length-1)); //random integer
-        document.getElementById("card").src = cards[random].picture; //shows the random card to the player
-        playerCards.push(cards[random]); //adds the random card to the player's deck
+        var card = cards[random]
+        document.getElementById("card").src = card.picture; //shows the random card to the player
+        playerCards.push(card); //adds the random card to the player's deck
         localStorage.setItem("deck",playerCards);
     }
 }
