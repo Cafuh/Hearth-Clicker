@@ -77,10 +77,10 @@ function rankUp(){
 }
 
 function showDeck(){
-    var cardz = sortDeck(cards)
-    for (var i = 0; i < cardz.length ; i++){
+    //var cardz = sortDeck(cards)
+    for (var i = 0; i < cards.length ; i++){
         var card = document.createElement("img");
-        card.setAttribute("src", cardz[i].picture);
+        card.setAttribute("src", cards[i].picture);
         card.setAttribute("draggable", "false");
         var deck = document.getElementById("deck");
         deck.appendChild(card);
@@ -103,7 +103,7 @@ function sortDeck(deck){ //this method is dumb and too long
     var twentyMana = [];
 
     for(var i = 0; i<deck.length;i++){
-        var card = deck[i];
+        card = deck[i];
         if(card.mana == 1){
             oneMana.push(card)
         }
