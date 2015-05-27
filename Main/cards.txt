@@ -1,0 +1,4 @@
+Wisp images/cards/wisp.png 2
+Leper Gnome images/cards/leper_gnome.png 2
+Undertaker images/cards/undertaker.png 2
+Angry Chicken images/cards/angry_chicken.png 2
