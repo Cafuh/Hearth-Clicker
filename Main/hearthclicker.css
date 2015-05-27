@@ -40,7 +40,7 @@ body {
 }
 
 #rank {
-    position:relative;
+	position: relative;
 	position: absolute;
     top: 0px;
     right: 0px;
