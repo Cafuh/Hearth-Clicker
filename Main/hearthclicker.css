@@ -38,3 +38,11 @@ body {
     text-align: center;
     user-select: none;
 }
+
+#rank {
+	position: relative;
+	position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
