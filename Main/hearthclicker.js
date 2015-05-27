@@ -7,9 +7,6 @@ if (rank == null){
 }
 document.getElementById("rank").src= "images/ranks/rank" + rank + ".png";
 
-var cards = [wisp = {name:"Wisp", picture:"images/cards/wisp.png", weight:2}, leperGnome = {name:"Leper Gnome", picture:"images/cards/leper_gnome.png", weight:2} , undertaker = {name:"Undertaker", picture:"images/cards/undertaker.png", weight:2},
-angryChicken = {name:"Angry Chicken", picture:"images/cards/angry_chicken.png", weight:2}];
-
 var playerCards = [];
 
 function addGold(){
@@ -48,7 +45,7 @@ function buyPack(){
     if(gold >= 100){ //if they have enough gold
         gold -= 100; //subtract the gold
         if(gold < 100){ //sets the buy button to be gray if they can't buy a pack anymore
-        document.getElementById("buy").src = "images/buy_button_gray.png";
+            document.getElementById("buy").src = "images/buy_button_gray.png";
         }
         localStorage.setItem("gold", gold); //saves the gold to the storage
         document.getElementById("text").innerHTML = gold; //sets the element to show the proper amount of gold
@@ -69,4 +66,16 @@ function rankUp(){
         localStorage.setItem("rank", rank); //saves the rank to the storage
         document.getElementById("rank").src = "images/ranks/rank" + rank + ".png"; //displays the proper rank icon
     }
+}
+
+function showDeck(){
+    for (var i = 0; i < cards.length ; i++){
+        var card = document.createElement("img");
+        card.setAttribute("src", cards[i].picture);
+        card.setAttribute("draggable", "false");
+
+        var deck = document.getElementById("deck");
+        deck.appendChild(card);
+    }
+
 }
