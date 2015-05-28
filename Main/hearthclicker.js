@@ -6,11 +6,13 @@ if (rank == null){
     rank = 25;
 }
 document.getElementById("rank").src= "images/ranks/rank" + rank + ".png";
-
-var playerCards = localStorage.getItem("deck");
-if (playerCards.length == 0){
-    playerCards = [];
+if(localStorage.getItem("deck")){
+    var deck = localStorage.getItem("deck");
 }
+else{
+    var deck = [];
+}
+
 
 function addGold(){
 	if (gold == null){ //if the player doesn't have any saved gold data
@@ -41,14 +43,14 @@ function reset(){
         localStorage.setItem("rank", 25);//resets the rank to 25 in the storage
         rank = 25; //resets the local rank variable
         document.getElementById("rank").src= "images/ranks/rank" + rank + ".png"; //displays the proper rank icon
-        playerCards = [];
-        localStorage.setItem("deck", playerCards);
+        deck = [];
+        localStorage.clear("deck");
     }
 }
 
 function buyPack(){
-    if(gold >= 100){ //if they have enough gold
-        gold -= 100; //subtract the gold
+    if(gold >= 1){ //if they have enough gold
+        gold -= 1; //subtract the gold
         if(gold < 100){ //sets the buy button to be gray if they can't buy a pack anymore
             document.getElementById("buy").src = "images/buy_button_gray.png";
         }
@@ -57,9 +59,9 @@ function buyPack(){
         var random = Math.round(Math.random() * (cards.length-1)); //random integer
         card = cards[random];
         document.getElementById("card").src = card.picture; //shows the random card to the player
-        playerCards.push(card); //adds the random card to the player's deck
-        localStorage.setItem("deck",playerCards);
-        document.getElementById("debug").innerHTML = playerCards[0].name;
+        deck.push(card);
+        document.getElementById("debug").innerHTML = deck.length.toString();
+        localStorage.setItem("deck",deck);
     }
 }
 
@@ -77,10 +79,9 @@ function rankUp(){
 }
 
 function showDeck(){
-    //var cardz = sortDeck(cards)
-    for (var i = 0; i < cards.length ; i++){
+    for (var i = 0; i < deck.length ; i++){
         var card = document.createElement("img");
-        card.setAttribute("src", cards[i].picture);
+        card.setAttribute("src", deck[i].picture);
         card.setAttribute("draggable", "false");
         var deck = document.getElementById("deck");
         deck.appendChild(card);
@@ -88,59 +89,7 @@ function showDeck(){
 
 }
 
-function sortDeck(deck){ //this method is dumb and too long
-    var oneMana = [];
-    var twoMana = [];
-    var threeMana = [];
-    var fourMana = [];
-    var fiveMana = [];
-    var sixMana = [];
-    var sevenMana = [];
-    var eightMana = [];
-    var nineMana = [];
-    var tenMana = [];
-    var twelveMana = [];
-    var twentyMana = [];
+function sortDeck(inp){ //this method is dumb and too long
 
-    for(var i = 0; i<deck.length;i++){
-        card = deck[i];
-        if(card.mana == 1){
-            oneMana.push(card)
-        }
-        if(card.mana == 2){
-            twoMana.push(card)
-        }
-        if(card.mana == 3){
-            threeMana.push(card)
-        }
-        if(card.mana == 4){
-            fourMana.push(card)
-        }
-        if(card.mana == 5){
-            fiveMana.push(card)
-        }
-        if(card.mana == 6){
-            sixMana.push(card)
-        }
-        if(card.mana == 7){
-            sevenMana.push(card)
-        }
-        if(card.mana == 8){
-            eightMana.push(card)
-        }
-        if(card.mana == 9){
-            nineMana.push(card)
-        }
-        if(card.mana == 10){
-            tenMana.push(card)
-        }
-        if(card.mana == 12){
-            twelveMana.push(card)
-        }
-        if(card.mana == 20){
-            twentyMana.push(card)
-        }
-    }
-    oneMana.sort();twoMana.sort();threeMana.sort();fourMana.sort();fiveMana.sort();sixMana.sort();sevenMana.sort();eightMana.sort();nineMana.sort();tenMana.sort();twelveMana.sort();twentyMana.sort();
-    return finalDeck = oneMana + twoMana + threeMana + fourMana + fiveMana + sixMana + sevenMana + eightMana +nineMana +tenMana + twelveMana + twentyMana;
+
 }
