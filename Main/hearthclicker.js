@@ -15,6 +15,7 @@ else{
 
 
 function addGold(){
+    playClickSound();
 	if (gold == null){ //if the player doesn't have any saved gold data
         gold = 1;
 	}
@@ -49,8 +50,9 @@ function reset(){
 }
 
 function buyPack(){
-    if(gold >= 1){ //if they have enough gold
-        gold -= 1; //subtract the gold
+    if(gold >= 100){ //if they have enough gold
+        playBuySound();
+        gold -= 100; //subtract the gold
         if(gold < 100){ //sets the buy button to be gray if they can't buy a pack anymore
             document.getElementById("buy").src = "images/buy_button_gray.png";
         }
@@ -92,4 +94,14 @@ function showDeck(){
 function sortDeck(inp){ //this method is dumb and too long
 
 
+}
+
+function playClickSound(){
+    var audio = new Audio("sounds/Small_Click.ogg");
+    audio.play();
+}
+
+function playBuySound(){
+    var audio = new Audio("sounds/victory_screen_start.ogg");
+    audio.play();
 }
