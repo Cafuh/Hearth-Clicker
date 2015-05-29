@@ -62,7 +62,6 @@ function buyPack(){
         card = cards[random];
         document.getElementById("card").src = card.picture; //shows the random card to the player
         deck.push(card);
-        document.getElementById("debug").innerHTML = deck[28].picture;
     }
 }
 
@@ -86,12 +85,10 @@ function showDeck(){
 
     for(i = show.length-1;i >= 0;i--) {
         card = document.createElement("img");
-        document.getElementById("debug2").innerHTML = length + "+" + i;
-        card.setAttribute("src", show[i].picture); //this doesn't work after 0
+        card.setAttribute("src", show[i].picture);
         card.setAttribute("draggable", "false");
         var deck = document.getElementById("deck");
         deck.appendChild(card);
-
     }
 
 
