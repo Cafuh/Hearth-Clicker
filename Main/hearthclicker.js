@@ -80,14 +80,17 @@ function rankUp(){
 }
 
 function showDeck(){
-    document.getElementById("debug").innerHTML = "4432";
-    for (var i = 0; i < deck.length ; i++){
+    var deck = JSON.parse(localStorage.getItem("deck"));
+    for(i = 0;i<deck.length;i++){
+        document.getElementById("debug2").innerHTML = "hey";
         var card = document.createElement("img");
         card.setAttribute("src", deck[i].picture);
         card.setAttribute("draggable", "false");
         var deck = document.getElementById("deck");
         deck.appendChild(card);
     }
+
+
 
 }
 
