@@ -6,16 +6,15 @@ if (rank == null){
     rank = 25;
 }
 document.getElementById("rank").src= "images/ranks/rank" + rank + ".png";
-if(localStorage.getItem("deck")){
-    var deck = localStorage.getItem("deck");
-}
-else{
-    var deck = [];
+
+var deck = JSON.parse(localStorage.getItem("deck"));
+if(deck[0] == null){
+    deck = [];
 }
 
 
 function addGold(){
-    playClickSound();
+    //playClickSound();
 	if (gold == null){ //if the player doesn't have any saved gold data
         gold = 1;
 	}
@@ -30,6 +29,7 @@ function addGold(){
 
 function store(){
     localStorage.setItem("gold", gold); //saves the gold in localStorage under the name "gold"
+    localStorage["deck"] = JSON.stringify(deck);
 }
 
 function showGold(){
@@ -50,9 +50,9 @@ function reset(){
 }
 
 function buyPack(){
-    if(gold >= 100){ //if they have enough gold
-        playBuySound();
-        gold -= 100; //subtract the gold
+    if(gold >= 1){ //if they have enough gold
+        //playBuySound();
+        gold -= 1; //subtract the gold
         if(gold < 100){ //sets the buy button to be gray if they can't buy a pack anymore
             document.getElementById("buy").src = "images/buy_button_gray.png";
         }
@@ -63,7 +63,6 @@ function buyPack(){
         document.getElementById("card").src = card.picture; //shows the random card to the player
         deck.push(card);
         document.getElementById("debug").innerHTML = deck.length.toString();
-        localStorage.setItem("deck",deck);
     }
 }
 
@@ -81,6 +80,7 @@ function rankUp(){
 }
 
 function showDeck(){
+    document.getElementById("debug").innerHTML = "4432";
     for (var i = 0; i < deck.length ; i++){
         var card = document.createElement("img");
         card.setAttribute("src", deck[i].picture);
