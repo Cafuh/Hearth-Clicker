@@ -46,6 +46,8 @@ function reset(){
         document.getElementById("rank").src= "images/ranks/rank" + rank + ".png"; //displays the proper rank icon
         deck = [];
         localStorage.clear("deck");
+
+
     }
 }
 
@@ -62,6 +64,8 @@ function buyPack(){
         card = cards[random];
         document.getElementById("card").src = card.picture; //shows the random card to the player
         deck.push(card);
+
+
     }
 }
 
@@ -80,16 +84,14 @@ function rankUp(){
 
 function showDeck(){
     var show = JSON.parse(localStorage.getItem("deck"));
-
-    var length = show.length;
-
+    var deck = document.getElementById("deck");
     for(i = show.length-1;i >= 0;i--) {
         card = document.createElement("img");
         card.setAttribute("src", show[i].picture);
         card.setAttribute("draggable", "false");
-        var deck = document.getElementById("deck");
         deck.appendChild(card);
     }
+    show = [];
 
 
 
