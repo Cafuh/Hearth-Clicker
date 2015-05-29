@@ -62,7 +62,7 @@ function buyPack(){
         card = cards[random];
         document.getElementById("card").src = card.picture; //shows the random card to the player
         deck.push(card);
-        document.getElementById("debug").innerHTML = deck.length.toString();
+        document.getElementById("debug").innerHTML = deck.length;
     }
 }
 
@@ -81,9 +81,10 @@ function rankUp(){
 
 function showDeck(){
     var deck = JSON.parse(localStorage.getItem("deck"));
-    for(i = 0;i<deck.length;i++){
-        document.getElementById("debug2").innerHTML = "hey";
-        var card = document.createElement("img");
+    document.getElementById("debug2").innerHTML = deck.length;
+    var length = deck.length;
+    for(i = 0;i< length ;i++){
+        card = document.createElement("img");
         card.setAttribute("src", deck[i].picture);
         card.setAttribute("draggable", "false");
         var deck = document.getElementById("deck");
