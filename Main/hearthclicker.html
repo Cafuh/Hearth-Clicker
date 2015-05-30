@@ -9,14 +9,17 @@
 	<body onunload="store()" onpageshow="showGold()">
 	    <div>
 		    <input id ="reset" type="image" src="images/reset_button.png" onclick = "reset()">
-
 	    </div>
+        <div>
+                <p id = "saltT">Salt Level</p>
+                <progress id = "salt" max = "100" value = "0">Salt Level</progress>
+        </div>
 		<div align = "middle" id = "mid" >
 	            <img src="images/logo.png" alt="Logo" draggable="false">
 	            <img id = "play_button" src="images/play_button.png" onclick="addGold()" draggable="false">
 		</div>
         <a href="deck.html"><img src = "images/deck_view.png" alt = "My Collection" id = "deckV"></a>
-         <div id = "cash">
+        <div id = "cash">
              <img id="gold" src="images/gold.png">
              <p id = "text"></p>
         </div>
@@ -26,6 +29,7 @@
 		<div id="content">
 			<img id ="rank" src = "images/ranks/rank25.png" draggable="false">
 		</div>
+        <p id ="debug">2</p>
 		<script src="cards.js"></script>
         <script src = "hearthclicker.js"></script>
 	</body>

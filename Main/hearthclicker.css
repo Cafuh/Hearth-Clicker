@@ -77,4 +77,17 @@ body {
     left: 10px;
 }
 
+#salt{
+    top:40px;
+    position:absolute;
+    height:10px;
+    width:100px;
+}
+
+#saltT{
+    color:white;
+    top: 40px;
+    left:25px;
+    position: absolute;
+}
 

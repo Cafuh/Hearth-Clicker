@@ -12,7 +12,11 @@ if(deck[0] == null){
     deck = [];
 }
 calculateWinChance();
-
+var salt = localStorage.getItem("salt");
+if(salt == null){
+    salt = 0;
+}
+document.getElementById("salt").value = salt;
 
 function addGold(){
     playClickSound();
@@ -169,24 +173,46 @@ function calculateWinChance(){
     document.getElementById("try").innerHTML = "Try to rank up (" + winChance + "% chance)";
 }
 
-function playGame(){
-    var deckWeight = 0;
-    var play = deck;
-    for(i = 0; i< play.length;i++){
-        deckWeight += play[i].weight;
+function playGame() {
+    if (salt < 100) {
+        var deckWeight = 0;
+        var play = deck;
+        for (i = 0; i < play.length; i++) {
+            deckWeight += play[i].weight;
+        }
+        var fightWeight = calculateWinNumber();
+        var random = getRandomInt(0, fightWeight);
+        if (deckWeight > random) {
+            rankUp();
+            playWinSound();
+            calculateWinChance();
+            resetSalt();
+        }
+        else { //put in salt meter + a message saying you lost
+            playLoseSound();
+            addSaltLevel();
+        }
     }
-    var fightWeight = calculateWinNumber();
-    var random = getRandomInt(0,fightWeight);
-    if(deckWeight > random) {
-        rankUp();
-        playWinSound();
-        calculateWinChance();
-    }
-    else{ //put in salt meter + a message saying you lost
-        playLoseSound();
+    else{
+        alert("Sorry, you're too salty to play right now");
+        setInterval(resetSalt,60000);
     }
 }
 
 function getRandomInt(min, max) {
     return Math.round(Math.random() * (max - min + 1)) + min;
+}
+
+function addSaltLevel(){
+    var random = getRandomInt(10,30);
+    document.getElementById("debug").innerHTML = random;
+    salt += random;
+    localStorage.setItem("salt",salt);
+    document.getElementById("salt").value = salt;
+}
+
+function resetSalt(){
+    salt = 0;
+    localStorage.setItem("salt",salt);
+    document.getElementById("salt").value = salt;
 }
