@@ -17,6 +17,12 @@ body {
     right: 120px;
 }
 
+#try{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #deckV{
     position: absolute;
     top: 0px;

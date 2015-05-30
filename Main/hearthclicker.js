@@ -60,7 +60,7 @@ function buyPack(){
         }
         localStorage.setItem("gold", gold); //saves the gold to the storage
         document.getElementById("text").innerHTML = gold; //sets the element to show the proper amount of gold
-        var random = Math.round(Math.random() * (cards.length-1)); //random integer
+        var random = getRandomInt(0,deck.length-1);
         card = cards[random];
         document.getElementById("card").src = card.picture; //shows the random card to the player
         deck.push(card);
@@ -71,7 +71,7 @@ function buyPack(){
 
 function calculateWinNumber(){
     var num = 25 - rank;
-    var winNumber = 100 + (num * num * num);
+    return winNumber = 100 + (num * num * num);
 }
 
 function rankUp(){
@@ -139,8 +139,6 @@ function sortDeck(inp){ //this function is too long and bad
     return fin = oneMana.concat(twoMana).concat(threeMana).concat(fourMana).concat(fiveMana).concat(sixMana).concat(sevenMana).concat(eightMana).concat(nineMana).concat(tenMana).concat(twelveMana).concat(twentyMana);
 }
 
-
-
 function playClickSound(){
     var audio = new Audio("sounds/board_common_dirt_poke_1.ogg");
     audio.volume = 0.05;
@@ -151,4 +149,25 @@ function playBuySound(){
     var audio = new Audio("sounds/victory_screen_start.ogg");
     audio.volume = 0.05;
     audio.play();
+}
+
+function playGame(){
+    var deckWeight = 0;
+    var play = JSON.parse(localStorage.getItem("deck"));
+    for(i = 0; i< play.length;i++){
+        deckWeight += play[i].weight;
+    }
+
+    var fightWeight = calculateWinNumber();
+    var random = getRandomInt(0,fightWeight);
+    document.getElementById("debug").innerHTML = deckWeight.toString() + "+" + random;
+    if(deckWeight > random)
+        rankUp();
+    else{ //put in salt meter + a message saying you lost
+
+    }
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

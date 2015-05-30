@@ -7,26 +7,26 @@
 		<link rel="shortcut icon" href="images/gold.png"/>
 	</head>
 	<body onunload="store()" onpageshow="showGold()">
-	<div>
-		<input id ="reset" type="image" src="images/reset_button.png" onclick = "reset()">
+	    <div>
+		    <input id ="reset" type="image" src="images/reset_button.png" onclick = "reset()">
 
-	</div>
+	    </div>
 		<div align = "middle" id = "mid" >
 	            <img src="images/logo.png" alt="Logo" draggable="false">
 	            <img id = "play_button" src="images/play_button.png" onclick="addGold()" draggable="false">
 		</div>
-    <a href="deck.html"><img src = "images/deck_view.png" alt = "My Collection" id = "deckV"></a>
-    <div id = "cash">
-        <img id="gold" src="images/gold.png">
-        <p id = "text"></p>
-    </div>
+        <a href="deck.html"><img src = "images/deck_view.png" alt = "My Collection" id = "deckV"></a>
+         <div id = "cash">
+             <img id="gold" src="images/gold.png">
+             <p id = "text"></p>
+        </div>
 		<img id ="buy" src="images/buy_button_gray.png" align = "right" onclick="buyPack()" draggable="false">
 		<img id = "card" src = "" >
-
-
+        <button id = "try" onclick="playGame()">Try to rank up</button>
 		<div id="content">
 			<img id ="rank" src = "images/ranks/rank25.png" onclick="rankUp()">
 		</div>
+        <p id = "debug">242</p>
 		<script src="cards.js"></script>
         <script src = "hearthclicker.js"></script>
 	</body>
