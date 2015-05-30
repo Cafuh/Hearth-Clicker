@@ -53,7 +53,6 @@ function reset(){
 
 function buyPack(){
     if(gold >= 1){ //if they have enough gold
-        playBuySound();
         gold -= 1; //subtract the gold
         if(gold < 100){ //sets the buy button to be gray if they can't buy a pack anymore
             document.getElementById("buy").src = "images/buy_button_gray.png";
@@ -144,26 +143,33 @@ function playClickSound(){
     audio.play();
 }
 
-function playBuySound(){
+function playWinSound(){
     var audio = new Audio("sounds/victory_screen_start.ogg");
+    audio.volume = 0.05;
+    audio.play();
+}
+
+function playLoseSound(){
+    var audio = new Audio("sounds/defeat_screen_start.ogg");
     audio.volume = 0.05;
     audio.play();
 }
 
 function playGame(){
     var deckWeight = 0;
-    var play = JSON.parse(localStorage.getItem("deck"));
+    var play = deck;
     for(i = 0; i< play.length;i++){
         deckWeight += play[i].weight;
     }
-
     var fightWeight = calculateWinNumber();
     var random = getRandomInt(0,fightWeight);
     document.getElementById("debug").innerHTML = deckWeight.toString() + "+" + random;
-    if(deckWeight > random)
+    if(deckWeight > random) {
         rankUp();
+        playWinSound();
+    }
     else{ //put in salt meter + a message saying you lost
-
+        playLoseSound();
     }
 }
 
