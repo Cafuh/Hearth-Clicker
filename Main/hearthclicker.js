@@ -162,6 +162,7 @@ function playGame(){
     document.getElementById("debug").innerHTML = deckWeight.toString() + "+" + random;
     if(deckWeight > random) {
         rankUp();
+        playWinSound();
     }
     else{ //put in salt meter + a message saying you lost
 
