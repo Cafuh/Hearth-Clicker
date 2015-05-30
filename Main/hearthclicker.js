@@ -51,8 +51,7 @@ function reset(){
         document.getElementById("rank").src= "images/ranks/rank" + rank + ".png"; //displays the proper rank icon
         deck = [];
         localStorage.clear("deck");
-
-
+        resetSalt();
     }
 }
 
@@ -195,7 +194,7 @@ function playGame() {
     }
     else{
         alert("Sorry, you're too salty to play right now");
-        setInterval(resetSalt,60000);
+        setTimeout(resetSalt,60000);
     }
 }
 
