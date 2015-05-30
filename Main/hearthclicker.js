@@ -83,24 +83,63 @@ function rankUp(){
 }
 
 function showDeck(){
-    var show = JSON.parse(localStorage.getItem("deck"));
+    var show = sortDeck();
     var deck = document.getElementById("deck");
-    for(i = show.length-1;i >= 0;i--) {
+    for(i = 0;i < show.length;i++) {
         card = document.createElement("img");
         card.setAttribute("src", show[i].picture);
         card.setAttribute("draggable", "false");
+        card.setAttribute("alt", show[i].name);
         deck.appendChild(card);
     }
     show = [];
-
-
-
 }
 
-function sortDeck(inp){ //this method is dumb and too long
-
-
+function sortDeck(inp){ //this function is too long and bad
+    var sort = JSON.parse(localStorage.getItem("deck"));
+    var oneMana = [];
+    var twoMana = [];
+    var threeMana = [];
+    var fourMana = [];
+    var fiveMana = [];
+    var sixMana = [];
+    var sevenMana = [];
+    var eightMana = [];
+    var nineMana = [];
+    var tenMana = [];
+    var twelveMana = [];
+    var twentyMana = [];
+    for(i = 0;i < sort.length;i++) {
+        var card = sort[i];
+        if(Number(card.mana) == 1)
+            oneMana.push(card);
+        if(Number(card.mana) == 2)
+            twoMana.push(card);
+        if(Number(card.mana) == 3)
+            threeMana.push(card);
+        if(Number(card.mana) == 4)
+            fourMana.push(card);
+        if(Number(card.mana) == 5)
+            fiveMana.push(card);
+        if(Number(card.mana) == 6)
+            sixMana.push(card);
+        if(Number(card.mana) == 7)
+            sevenMana.push(card);
+        if(Number(card.mana) == 8)
+            eightMana.push(card);
+        if(Number(card.mana) == 9)
+            nineMana.push(card);
+        if(Number(card.mana) == 10)
+            tenMana.push(card);
+        if(Number(card.mana) == 12)
+            twelveMana.push(card);
+        if(Number(card.mana) == 20)
+            twentyMana.push(card);
+    }
+    return fin = oneMana.concat(twoMana).concat(threeMana).concat(fourMana).concat(fiveMana).concat(sixMana).concat(sevenMana).concat(eightMana).concat(nineMana).concat(tenMana).concat(twelveMana).concat(twentyMana);
 }
+
+
 
 function playClickSound(){
     var audio = new Audio("sounds/Small_Click.ogg");
