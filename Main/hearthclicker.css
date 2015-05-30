@@ -6,6 +6,7 @@ body {
     color: gold;
     display:block;
     position: absolute;
+    background-color: gray;
     top: 275px;
     right: 100px;
 }

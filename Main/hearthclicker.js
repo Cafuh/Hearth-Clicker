@@ -11,6 +11,7 @@ var deck = JSON.parse(localStorage.getItem("deck"));
 if(deck[0] == null){
     deck = [];
 }
+calculateWinChance();
 
 
 function addGold(){
@@ -64,6 +65,8 @@ function buyPack(){
         document.getElementById("card").src = card.picture; //shows the random card to the player
         deck.push(card);
         localStorage.setItem("deck",deck);
+        calculateWinChance();
+
     }
 }
 
@@ -155,6 +158,17 @@ function playLoseSound(){
     audio.play();
 }
 
+function calculateWinChance(){
+    var deckWeight = 0;
+    var play = deck;
+    for(i = 0; i< play.length;i++){
+        deckWeight += play[i].weight;
+    }
+
+    var winChance = Math.round((deckWeight / calculateWinNumber()) * 100);
+    document.getElementById("try").innerHTML = "Try to rank up (" + winChance + "% chance)";
+}
+
 function playGame(){
     var deckWeight = 0;
     var play = deck;
@@ -166,6 +180,7 @@ function playGame(){
     if(deckWeight > random) {
         rankUp();
         playWinSound();
+        calculateWinChance();
     }
     else{ //put in salt meter + a message saying you lost
         playLoseSound();
