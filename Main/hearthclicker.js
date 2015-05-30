@@ -60,12 +60,11 @@ function buyPack(){
         }
         localStorage.setItem("gold", gold); //saves the gold to the storage
         document.getElementById("text").innerHTML = gold; //sets the element to show the proper amount of gold
-        var random = getRandomInt(0,deck.length-1);
+        var random =  Math.round(Math.random() * (cards.length-1));
         card = cards[random];
         document.getElementById("card").src = card.picture; //shows the random card to the player
         deck.push(card);
-
-
+        localStorage.setItem("deck",deck);
     }
 }
 
@@ -95,7 +94,7 @@ function showDeck(){
     show = [];
 }
 
-function sortDeck(inp){ //this function is too long and bad
+function sortDeck(){ //this function is too long and bad
     var sort = JSON.parse(localStorage.getItem("deck"));
     var oneMana = [];
     var twoMana = [];
@@ -169,5 +168,5 @@ function playGame(){
 }
 
 function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.round(Math.random() * (max - min + 1)) + min;
 }
