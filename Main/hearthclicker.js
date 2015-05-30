@@ -163,7 +163,6 @@ function playGame(){
     }
     var fightWeight = calculateWinNumber();
     var random = getRandomInt(0,fightWeight);
-    document.getElementById("debug").innerHTML = deckWeight.toString() + "+" + random;
     if(deckWeight > random) {
         rankUp();
         playWinSound();
