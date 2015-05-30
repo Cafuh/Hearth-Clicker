@@ -17,6 +17,12 @@ body {
     right: 120px;
 }
 
+#deckV{
+    position: absolute;
+    top: 0px;
+    right: 200px
+}
+
 #logo{
     display:block;
     position: absolute;

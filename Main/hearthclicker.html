@@ -9,13 +9,17 @@
 	<body onunload="store()" onpageshow="showGold()">
 	<div>
 		<input id ="reset" type="image" src="images/reset_button.png" onclick = "reset()">
-		<img id="gold" type="image" src="images/gold.png">
+
 	</div>
 		<div align = "middle" id = "mid" >
-	            <a href="deck.html"><img src="images/logo.png" alt="Logo" draggable="false"></a>
+	            <img src="images/logo.png" alt="Logo" draggable="false">
 	            <img id = "play_button" src="images/play_button.png" onclick="addGold()" draggable="false">
 		</div>
-		<p id = "text"></p>
+    <a href="deck.html"><img src = "images/deck_view.png" alt = "My Collection" id = "deckV"></a>
+    <div id = "cash">
+        <img id="gold" src="images/gold.png">
+        <p id = "text"></p>
+    </div>
 		<img id ="buy" src="images/buy_button_gray.png" align = "right" onclick="buyPack()" draggable="false">
 		<img id = "card" src = "" >
 

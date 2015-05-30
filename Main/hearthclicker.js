@@ -149,5 +149,6 @@ function playClickSound(){
 
 function playBuySound(){
     var audio = new Audio("sounds/victory_screen_start.ogg");
+    audio.volume = 0.05;
     audio.play();
 }
