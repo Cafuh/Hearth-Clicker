@@ -14,7 +14,7 @@ if(deck[0] == null){
 
 
 function addGold(){
-    //playClickSound();
+    playClickSound();
 	if (gold == null){ //if the player doesn't have any saved gold data
         gold = 1;
 	}
@@ -53,7 +53,7 @@ function reset(){
 
 function buyPack(){
     if(gold >= 1){ //if they have enough gold
-        //playBuySound();
+        playBuySound();
         gold -= 1; //subtract the gold
         if(gold < 100){ //sets the buy button to be gray if they can't buy a pack anymore
             document.getElementById("buy").src = "images/buy_button_gray.png";
@@ -142,7 +142,8 @@ function sortDeck(inp){ //this function is too long and bad
 
 
 function playClickSound(){
-    var audio = new Audio("sounds/Small_Click.ogg");
+    var audio = new Audio("sounds/board_common_dirt_poke_1.ogg");
+    audio.volume = 0.05;
     audio.play();
 }
 
