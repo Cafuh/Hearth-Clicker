@@ -52,6 +52,7 @@ function reset(){
         deck = [];
         localStorage.clear("deck");
         resetSalt();
+        document.getElementById("try").innerHTML = "Try to rank up (0% chance)";
     }
 }
 
@@ -69,13 +70,23 @@ function buyPack(){
         deck.push(card);
         localStorage.setItem("deck",deck);
         calculateWinChance();
-
     }
 }
 
 function calculateWinNumber(){
     var num = 25 - rank;
     return winNumber = 100 + (num * num * num);
+}
+
+function calculateWinChance(){
+    var deckWeight = 0;
+    var play = deck;
+    for(i = 0; i< play.length;i++){
+        deckWeight += play[i].weight;
+    }
+
+    var winChance = Math.round((deckWeight / calculateWinNumber()) * 100);
+    document.getElementById("try").innerHTML = "Try to rank up (" + winChance + "% chance)";
 }
 
 function rankUp(){
@@ -101,6 +112,7 @@ function showDeck(){
 
 function sortDeck(){ //this function is too long and bad
     var sort = JSON.parse(localStorage.getItem("deck"));
+    var zeroMana = [];
     var oneMana = [];
     var twoMana = [];
     var threeMana = [];
@@ -115,6 +127,8 @@ function sortDeck(){ //this function is too long and bad
     var twentyMana = [];
     for(i = 0;i < sort.length;i++) {
         var card = sort[i];
+        if(Number(card.mana) == 0)
+            zeroMana.push(card);
         if(Number(card.mana) == 1)
             oneMana.push(card);
         if(Number(card.mana) == 2)
@@ -140,7 +154,7 @@ function sortDeck(){ //this function is too long and bad
         if(Number(card.mana) == 20)
             twentyMana.push(card);
     }
-    return fin = oneMana.concat(twoMana).concat(threeMana).concat(fourMana).concat(fiveMana).concat(sixMana).concat(sevenMana).concat(eightMana).concat(nineMana).concat(tenMana).concat(twelveMana).concat(twentyMana);
+    return fin = zeroMana.concat(oneMana).concat(twoMana).concat(threeMana).concat(fourMana).concat(fiveMana).concat(sixMana).concat(sevenMana).concat(eightMana).concat(nineMana).concat(tenMana).concat(twelveMana).concat(twentyMana);
 }
 
 function playClickSound(){
@@ -161,16 +175,6 @@ function playLoseSound(){
     audio.play();
 }
 
-function calculateWinChance(){
-    var deckWeight = 0;
-    var play = deck;
-    for(i = 0; i< play.length;i++){
-        deckWeight += play[i].weight;
-    }
-
-    var winChance = Math.round((deckWeight / calculateWinNumber()) * 100);
-    document.getElementById("try").innerHTML = "Try to rank up (" + winChance + "% chance)";
-}
 
 function playGame() {
     if (salt < 100) {
@@ -203,9 +207,7 @@ function getRandomInt(min, max) {
 }
 
 function addSaltLevel(){
-    var random = getRandomInt(10,30);
-    document.getElementById("debug").innerHTML = random;
-    salt += random;
+    salt += getRandomInt(10,30);
     localStorage.setItem("salt",salt);
     document.getElementById("salt").value = salt;
 }

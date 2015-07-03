@@ -61,3 +61,9 @@ var cards = [
     wisp = {name:"Wisp", picture:"images/cards/wisp.png", weight:10, mana:0},
     wolfrider = {name:"Wolfrider", picture: "images/cards/wolfrider.png", weight:10, mana:3}
 ];
+
+var naxxBosses = [
+    AnubRekhan = {name:"Anub'Rekhan", difficulty:20},
+    GrandWidowFaerlina = {name:"Grand Widow Faerlina", difficulty:30}
+
+];
